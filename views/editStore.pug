@@ -1,0 +1,9 @@
+extends layout
+
+include mixins/_storeForm
+
+block content
+    .inner
+      pre= h.dump()
+      h2 #{title}
+      +storeForm(store)
