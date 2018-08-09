@@ -74,7 +74,7 @@ exports.getStores = async (req, res) => {
 
 const confirmOwner = (store, user) => {
   if (!store.author.equals(user._id) || user.level < 10) {
-    throw Error('You must own a store in order to edit it!');
+    throw Error('You must own a data in order to edit it!');
   }
 }
 exports.editStore = async (req, res) => {
@@ -94,7 +94,7 @@ exports.updateStore = async (req, res) => {
     new: true, //return the new store instead of the old one
     runValidators: true
   }).exec();
-  req.flash('success', `Successfully updated <strong>${store.name}</strong>. <a href="/stores/${store.slug}">View Store </a>`);
+  req.flash('success', `Successfully updated <strong>${store.name}</strong>. <a href="/stores/${store.slug}">View  </a>`);
   res.redirect(`/stores/${store._id}/edit`);
 };
 
